@@ -1,0 +1,680 @@
+/* =========================================================
+   Personal portfolio: style.css
+   Tip: to change the look of the whole site, edit the
+   values in the ":root" block below.
+   ========================================================= */
+
+/* ---------- 0. Fonts (bundled in the /fonts folder, no internet needed) ---------- */
+@font-face {
+  font-family: "Fraunces";
+  src: url("./fonts/fraunces-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("./fonts/figtree-latin.woff2") format("woff2");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- 1. Design tokens (colors, fonts, spacing) ---------- */
+:root {
+  /* Colors */
+  --navy-900: #081425;   /* page background */
+  --navy-800: #0d1f38;   /* alternate section background */
+  --navy-700: #132845;   /* cards */
+  --line: #25405f;       /* borders */
+  --text: #eef3fa;       /* main text (white-ish) */
+  --muted: #a8b7cc;      /* secondary text */
+  --green: #5fd3a0;      /* accent */
+  --green-soft: rgba(95, 211, 160, 0.14);
+
+  /* Fonts */
+  --font-heading: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  /* Layout */
+  --radius: 10px;
+  --header-height: 68px;
+}
+
+/* ---------- 2. Base / reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height); /* keeps headings visible under the sticky header */
+}
+
+body {
+  margin: 0;
+  background: var(--navy-900);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2.4rem);
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: var(--green);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: #8be8c0;
+}
+
+/* Visible keyboard focus for every interactive element */
+:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.container {
+  width: min(100% - 2.5rem, 1060px);
+  margin-inline: auto;
+}
+
+/* Text for screen readers only */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  background: var(--green);
+  color: var(--navy-900);
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ---------- 3. Header and navigation ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: var(--header-height);
+  background: rgba(8, 20, 37, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.brand:hover {
+  color: var(--green);
+}
+
+.site-nav ul {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.site-nav a {
+  display: block;
+  padding: 0.5rem 0.8rem;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.97rem;
+  border-radius: 6px;
+  transition: color 0.2s ease;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  color: var(--text);
+}
+
+.site-nav a.active {
+  box-shadow: inset 0 -2px 0 var(--green);
+  border-radius: 6px 6px 0 0;
+}
+
+/* The menu button only appears on small screens (see section 11) */
+.nav-toggle {
+  display: none;
+}
+
+/* ---------- 4. Hero ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(4.5rem, 12vw, 8.5rem) 0 clamp(7rem, 16vw, 11rem);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 2rem + 4.5vw, 5rem);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+
+.hero-lead {
+  max-width: 34rem;
+  font-size: clamp(1.1rem, 1rem + 0.5vw, 1.3rem);
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+/* The decorative sine wave: a nod to mathematics and renewable energy */
+.hero-wave {
+  position: absolute;
+  left: 0;
+  bottom: 1.5rem;
+  width: 100%;
+  height: clamp(90px, 16vw, 170px);
+  pointer-events: none;
+}
+
+.wave {
+  fill: none;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.wave-main {
+  stroke: var(--green);
+  stroke-width: 2.5;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw-wave 2.6s ease-out 0.3s forwards;
+}
+
+.wave-faint {
+  stroke: var(--green);
+  stroke-width: 1.5;
+  opacity: 0.22;
+  transform: translateY(14px);
+}
+
+@keyframes draw-wave {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ---------- 5. Buttons ---------- */
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--radius);
+  border: 2px solid transparent;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--green);
+  color: var(--navy-900);
+}
+
+.btn-primary:hover {
+  background: #8be8c0;
+  color: var(--navy-900);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--line);
+}
+
+.btn-secondary:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+/* ---------- 6. Sections ---------- */
+.section {
+  padding: clamp(3.5rem, 8vw, 6rem) 0;
+}
+
+.section-alt {
+  background: var(--navy-800);
+  border-block: 1px solid var(--line);
+}
+
+.section-intro {
+  max-width: 38rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+/* ---------- 7. About ---------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.prose {
+  max-width: 38rem;
+}
+
+.learning-box {
+  background: var(--navy-700);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--green);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.5rem;
+}
+
+.learning-box h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+}
+
+.learning-box li {
+  padding: 0.3rem 0;
+  color: var(--muted);
+}
+
+/* ---------- 8. Skills ---------- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.skill {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "name level"
+    "meter meter";
+  gap: 0.6rem 1rem;
+  background: var(--navy-700);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+}
+
+.skill-name {
+  grid-area: name;
+  font-weight: 600;
+}
+
+.skill-level {
+  grid-area: level;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* A 3-step level meter: Beginner, Intermediate, Advanced */
+.meter {
+  grid-area: meter;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.meter span {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--line);
+}
+
+.meter span.on {
+  background: var(--green);
+}
+
+/* ---------- 9. Projects ---------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--navy-700);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+  transition: border-color 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--green);
+}
+
+.card h3 {
+  margin-bottom: 0.7rem;
+}
+
+.card p {
+  color: var(--muted);
+}
+
+.card-placeholder {
+  border-style: dashed;
+  background: transparent;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.25rem 0 1.4rem;
+}
+
+.tags li {
+  background: var(--green-soft);
+  color: var(--green);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+}
+
+.card-links {
+  margin-top: auto; /* pushes the link to the bottom of the card */
+  font-weight: 600;
+}
+
+/* ---------- 10. Education, profiles, contact, footer ---------- */
+.education-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem 2rem;
+  background: var(--navy-700);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+}
+
+.education-school {
+  margin: 0.3rem 0 0;
+  color: var(--muted);
+}
+
+.education-years {
+  margin: 0;
+  font-weight: 600;
+  color: var(--green);
+}
+
+.profiles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.profile-card {
+  background: var(--navy-700);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+}
+
+.profile-card h3 {
+  margin-bottom: 0.6rem;
+}
+
+.profile-card p {
+  color: var(--muted);
+  margin-bottom: 1.4rem;
+}
+
+.profile-card h4 {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  margin: 1.75rem 0 0.6rem;
+}
+
+.repo-list li {
+  padding: 0.35rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.repo-list li:first-child {
+  border-top: 0;
+}
+
+.social-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.site-footer {
+  padding: 2rem 0;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem 2rem;
+}
+
+.footer-inner p {
+  margin: 0;
+}
+
+.footer-inner .social-list {
+  margin-top: 0;
+}
+
+/* ---------- 11. Responsive (tablet and mobile) ---------- */
+@media (max-width: 800px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 760px) {
+  /* Show the menu button and turn the nav into a dropdown.
+     These rules only apply when JavaScript is running (class "js"),
+     so the menu is never hidden if JavaScript fails to load. */
+  .js .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .nav-toggle-bars,
+  .nav-toggle-bars::before,
+  .nav-toggle-bars::after {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .nav-toggle-bars {
+    position: relative;
+  }
+
+  .nav-toggle-bars::before,
+  .nav-toggle-bars::after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+
+  .nav-toggle-bars::before {
+    top: -6px;
+  }
+
+  .nav-toggle-bars::after {
+    top: 6px;
+  }
+
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bars {
+    background: transparent;
+  }
+
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bars::before {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bars::after {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  .js .site-nav {
+    display: none;
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    background: var(--navy-900);
+    border-bottom: 1px solid var(--line);
+    padding: 0.5rem 1.25rem 1rem;
+  }
+
+  .js .site-nav.open {
+    display: block;
+  }
+
+  .site-nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .site-nav a {
+    padding: 0.8rem 0.5rem;
+  }
+
+  .site-nav a.active {
+    box-shadow: none;
+    color: var(--green);
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ---------- 12. Respect "reduce motion" settings ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .wave-main {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+
+  * {
+    transition: none !important;
+  }
+}

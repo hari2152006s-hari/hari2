@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- EDIT: page title and description (shown in browser tabs and search results) -->
+  <title>Hari | B.Sc. Mathematics Student</title>
+  <meta name="description" content="Personal portfolio of Hari, a B.Sc. Mathematics student learning Python and frontend development.">
+  <meta name="theme-color" content="#081425">
+
+  <!-- Fonts (Fraunces and Figtree) are bundled in the fonts/ folder and loaded from style.css -->
+  <link rel="preload" href="./fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="./style.css?v=2">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ============ HEADER / NAVIGATION ============ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top">Hari</a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+        <span class="visually-hidden">Menu</span>
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#profiles">GitHub &amp; LinkedIn</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ 1. HERO ============ -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <svg class="hero-wave" viewBox="0 0 1200 160" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="wave wave-faint" pathLength="1" d="M0 80 C 100 0, 200 0, 300 80 S 500 160, 600 80 S 800 0, 900 80 S 1100 160, 1200 80" />
+        <path class="wave wave-main" pathLength="1" d="M0 80 C 100 0, 200 0, 300 80 S 500 160, 600 80 S 800 0, 900 80 S 1100 160, 1200 80" />
+      </svg>
+
+      <div class="container hero-inner">
+        <!-- EDIT: your name -->
+        <h1 id="hero-title">Hi, I'm Hari.</h1>
+        <p class="hero-lead">
+          I'm a B.Sc. Mathematics student learning Python and frontend development,
+          and building small projects to practise what I learn.
+        </p>
+        <div class="button-row">
+          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <a class="btn btn-secondary" href="#contact">Contact Me</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 2. ABOUT ============ -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <h2 id="about-title">About me</h2>
+        <div class="about-grid">
+          <div class="prose">
+            <!-- EDIT: write this in your own words -->
+            <p>
+              I'm a B.Sc. Mathematics student interested in programming, technology and renewable energy.
+              I enjoy the way mathematics and code can be combined to solve practical problems.
+            </p>
+            <p>
+              I'm at the beginning of my programming journey. Right now I'm learning Python,
+              the basics of object-oriented programming, and how to build simple websites with
+              HTML, CSS and JavaScript.
+            </p>
+          </div>
+
+          <aside class="learning-box" aria-labelledby="learning-title">
+            <h3 id="learning-title">Currently learning</h3>
+            <ul>
+              <li>Python and object-oriented programming</li>
+              <li>HTML, CSS and JavaScript</li>
+              <li>Git and GitHub</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. SKILLS ============ -->
+    <section class="section section-alt" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <h2 id="skills-title">Skills</h2>
+        <p class="section-intro">
+          I'm a beginner in all of these and I'm improving them by building projects.
+        </p>
+
+        <!--
+          EDIT LEVELS: each skill has a meter with 3 steps (Beginner, Intermediate, Advanced).
+          Add class "on" to a <span> to light it up. Update the text and aria-label to match.
+          Only raise a level when it's really true.
+        -->
+        <ul class="skills-grid">
+          <li class="skill">
+            <span class="skill-name">Python</span>
+            <span class="meter" role="img" aria-label="Level: Beginner (1 of 3)">
+              <span class="on"></span><span></span><span></span>
+            </span>
+            <span class="skill-level">Beginner</span>
+          </li>
+          <li class="skill">
+            <span class="skill-name">Object-oriented programming (basics)</span>
+            <span class="meter" role="img" aria-label="Level: Beginner (1 of 3)">
+              <span class="on"></span><span></span><span></span>
+            </span>
+            <span class="skill-level">Beginner</span>
+          </li>
+          <li class="skill">
+            <span class="skill-name">HTML</span>
+            <span class="meter" role="img" aria-label="Level: Beginner (1 of 3)">
+              <span class="on"></span><span></span><span></span>
+            </span>
+            <span class="skill-level">Beginner</span>
+          </li>
+          <li class="skill">
+            <span class="skill-name">CSS</span>
+            <span class="meter" role="img" aria-label="Level: Beginner (1 of 3)">
+              <span class="on"></span><span></span><span></span>
+            </span>
+            <span class="skill-level">Beginner</span>
+          </li>
+          <li class="skill">
+            <span class="skill-name">JavaScript</span>
+            <span class="meter" role="img" aria-label="Level: Beginner (1 of 3)">
+              <span class="on"></span><span></span><span></span>
+            </span>
+            <span class="skill-level">Beginner</span>
+          </li>
+          <li class="skill">
+            <span class="skill-name">Git &amp; GitHub</span>
+            <span class="meter" role="img" aria-label="Level: Beginner (1 of 3)">
+              <span class="on"></span><span></span><span></span>
+            </span>
+            <span class="skill-level">Beginner</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 4. PROJECTS ============ -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <h2 id="projects-title">Projects</h2>
+        <p class="section-intro">Small learning projects. I'll add more as I build them.</p>
+
+        <div class="projects-grid">
+
+          <!-- Project 1 -->
+          <article class="card">
+            <h3>Web World</h3>
+            <p>A frontend learning website prototype, built to practise HTML, CSS and JavaScript.</p>
+            <ul class="tags" aria-label="Technologies used">
+              <li>HTML</li><li>CSS</li><li>JavaScript</li>
+            </ul>
+            <div class="card-links">
+              <!-- EDIT: replace with your repository URL -->
+              <a href="https://github.com/your-username/web-world" target="_blank" rel="noopener noreferrer">
+                View code on GitHub<span class="visually-hidden"> (opens in a new tab)</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="card">
+            <h3>Renewable Energy Report Card</h3>
+            <p>A beginner Python project that demonstrates object-oriented programming.</p>
+            <ul class="tags" aria-label="Technologies used">
+              <li>Python</li><li>OOP</li>
+            </ul>
+            <div class="card-links">
+              <!-- EDIT: replace with your repository URL -->
+              <a href="https://github.com/your-username/renewable-energy-report-card" target="_blank" rel="noopener noreferrer">
+                View code on GitHub<span class="visually-hidden"> (opens in a new tab)</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 3 (optional placeholder: fill in later, or delete this whole <article>) -->
+          <article class="card card-placeholder">
+            <h3>Your next project</h3>
+            <p>Add a short description of what you built and what you learned from it.</p>
+            <ul class="tags" aria-label="Technologies used">
+              <li>Tech 1</li><li>Tech 2</li>
+            </ul>
+            <div class="card-links">
+              <!-- EDIT: replace with your repository URL -->
+              <a href="https://github.com/your-username/project-name" target="_blank" rel="noopener noreferrer">
+                View code on GitHub<span class="visually-hidden"> (opens in a new tab)</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5. EDUCATION ============ -->
+    <section class="section section-alt" id="education" aria-labelledby="education-title">
+      <div class="container">
+        <h2 id="education-title">Education</h2>
+
+        <article class="education-item">
+          <div>
+            <h3>B.Sc. Mathematics</h3>
+            <!-- EDIT: your college / university name -->
+            <p class="education-school">[Your College Name]</p>
+          </div>
+          <p class="education-years">2025 &ndash; 2028</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ 6 & 7. GITHUB AND LINKEDIN ============ -->
+    <section class="section" id="profiles" aria-labelledby="profiles-title">
+      <div class="container">
+        <h2 id="profiles-title">GitHub &amp; LinkedIn</h2>
+
+        <div class="profiles-grid">
+
+          <!-- GitHub -->
+          <article class="profile-card" aria-labelledby="github-title">
+            <h3 id="github-title">GitHub</h3>
+            <p>My code and learning projects live here.</p>
+            <!-- EDIT: your GitHub profile URL -->
+            <a class="btn btn-primary" href="https://github.com/your-username" target="_blank" rel="noopener noreferrer">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              Visit my GitHub<span class="visually-hidden"> (opens in a new tab)</span>
+            </a>
+
+            <h4>Project repositories</h4>
+            <ul class="repo-list">
+              <!-- EDIT: replace each URL with the real repository link -->
+              <li><a href="https://github.com/your-username/web-world" target="_blank" rel="noopener noreferrer">web-world<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+              <li><a href="https://github.com/your-username/renewable-energy-report-card" target="_blank" rel="noopener noreferrer">renewable-energy-report-card<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+              <li><a href="https://github.com/your-username/project-name" target="_blank" rel="noopener noreferrer">project-name<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+            </ul>
+          </article>
+
+          <!-- LinkedIn -->
+          <article class="profile-card" aria-labelledby="linkedin-title">
+            <h3 id="linkedin-title">LinkedIn</h3>
+            <p>Connect with me for internships, learning and networking.</p>
+            <!-- EDIT: your LinkedIn profile URL -->
+            <a class="btn btn-primary" href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              Visit my LinkedIn<span class="visually-hidden"> (opens in a new tab)</span>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 8. CONTACT ============ -->
+    <section class="section section-alt" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 id="contact-title">Contact</h2>
+        <p class="section-intro">
+          The easiest way to reach me is by email. I'm open to internship and learning opportunities.
+        </p>
+
+        <div class="button-row">
+          <!-- EDIT: your email address (change it in BOTH places on the next line) -->
+          <a class="btn btn-primary" href="mailto:your.email@example.com">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            your.email@example.com
+          </a>
+        </div>
+
+        <ul class="social-list" aria-label="Social profiles">
+          <li><a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer">GitHub<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+          <li><a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ 9. FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <!-- The year updates automatically (see script.js). EDIT: your name -->
+      <p>&copy; <span id="year">2026</span> Hari. All rights reserved.</p>
+      <ul class="social-list">
+        <li><a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer">GitHub<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+        <li><a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+        <li><a href="mailto:your.email@example.com">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="./script.js?v=2" defer></script>
+</body>
+</html>
